@@ -9,6 +9,12 @@ MicroMaestro maestro(maestroSerial);
 #define ENC_B 15
 #define ENC_PORT PINC
 
+//set servo variables
+int spd = 0;
+int accel = 127;
+uint16_t lowSet = 4000;
+uint16_t highSet = 8000;
+
 void setup() {
   // put your setup code here, to run once:
   maestroSerial.begin(115200);
@@ -37,10 +43,7 @@ void loop() {
     counter += tmpdata;
   }
   
-  //set servo speed and acceleration
-  
-  int spd = 0;
-  int accel = 127;
+
   
   maestro.setSpeed(0, spd);
   maestro.setAcceleration(0,accel);
